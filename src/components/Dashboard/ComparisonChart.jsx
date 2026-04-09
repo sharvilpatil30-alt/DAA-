@@ -26,16 +26,16 @@ const ComparisonChart = ({ arrayLength }) => {
                             margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
                             barSize={70}
                         >
-                            <CartesianGrid strokeDasharray="3 3" stroke="#1f2937" vertical={false} />
-                            <XAxis dataKey="name" stroke="#9ca3af" tick={{fill: '#9ca3af'}} />
-                            <YAxis stroke="#9ca3af" tick={{fill: '#9ca3af'}} />
+                            <CartesianGrid strokeDasharray="3 3" stroke="var(--color-calm-border)" vertical={false} />
+                            <XAxis dataKey="name" stroke="var(--color-calm-muted)" tick={{fill: 'var(--color-calm-muted)'}} />
+                            <YAxis stroke="var(--color-calm-muted)" tick={{fill: 'var(--color-calm-muted)'}} />
                             <Tooltip 
-                                cursor={{fill: '#1f2937', opacity: 0.4}}
-                                contentStyle={{ backgroundColor: '#0b1220', border: '1px solid #1f2937', borderRadius: '12px', color: '#e5e7eb', boxShadow: '0 4px 20px rgba(0,0,0,0.2)' }}
+                                cursor={{fill: 'var(--color-calm-border)', opacity: 0.4}}
+                                contentStyle={{ backgroundColor: 'var(--color-calm-card)', border: '1px solid var(--color-calm-border)', borderRadius: '12px', color: 'var(--color-calm-text)', boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }}
                             />
-                            <Legend wrapperStyle={{ paddingTop: '20px' }} />
-                            <Bar dataKey="Brute Force" fill="#6366f1" radius={[6, 6, 0, 0]} />
-                            <Bar dataKey="Divide & Conquer" fill="#22d3ee" radius={[6, 6, 0, 0]} />
+                            <Legend wrapperStyle={{ paddingTop: '20px', color: 'var(--color-calm-text)' }} />
+                            <Bar dataKey="Brute Force" fill="var(--color-calm-primary)" radius={[6, 6, 0, 0]} />
+                            <Bar dataKey="Divide & Conquer" fill="var(--color-calm-secondary)" radius={[6, 6, 0, 0]} />
                         </BarChart>
                     </ResponsiveContainer>
                 </div>
@@ -60,7 +60,7 @@ const ComparisonChart = ({ arrayLength }) => {
             
             <div className="mt-10 p-5 bg-calm-bg/50 border border-calm-border rounded-xl text-center shadow-inner backdrop-blur-sm">
                 <p className="text-calm-text/90">
-                    <span className="text-calm-secondary font-medium">Divide & Conquer</span> performs approximately <code className="bg-calm-card border border-calm-border/50 px-2 py-0.5 rounded font-mono text-sm text-calm-secondary">3n/2 - 2</code> comparisons, significantly outperforming Brute Force's <code className="bg-calm-card border border-calm-border/50 px-2 py-0.5 rounded font-mono text-sm text-calm-primary">2n - 2</code> in larger datasets.
+                    Although both approaches share the same <strong>O(n) time complexity</strong>, <span className="text-calm-secondary font-medium">Divide & Conquer</span> is more efficient practically because it reduces the total number of comparisons to approximately <code className="bg-calm-card border border-calm-border/50 px-2 py-0.5 rounded font-mono text-sm text-calm-secondary">3n/2 - 2</code>, significantly outperforming Brute Force's <code className="bg-calm-card border border-calm-border/50 px-2 py-0.5 rounded font-mono text-sm text-calm-primary">2n - 2</code> comparisons and minimizing the constant factor for larger datasets.
                 </p>
             </div>
         </div>

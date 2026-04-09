@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { prism } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { Check, Copy } from 'lucide-react';
 
 const pseudocodeStr = `function maxmin(arr, low, high):
@@ -221,7 +221,7 @@ const AlgorithmImplementation = () => {
                         <div className="absolute inset-0 overflow-y-auto">
                             <SyntaxHighlighter 
                                 language={codes[activeTab].language} 
-                                style={atomDark} 
+                                style={prism} 
                                 showLineNumbers={true}
                                 customStyle={{ 
                                     background: 'transparent', 

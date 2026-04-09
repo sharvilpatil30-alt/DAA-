@@ -1,5 +1,3 @@
-<<<<<<< HEAD
+# DAA 
 
-=======
-
->>>>>>> ae7f8690b7dfbe2b19df83b4e4c34df2138cd88c
+visualisation of brute force vs divide and conquer for max-min problem

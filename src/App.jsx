@@ -49,10 +49,10 @@ function App() {
             A minimal, professional dashboard to analyze standard properties, visualize state complexity, and directly compare execution paths of algorithms.
           </p>
           <div className="flex justify-center gap-5">
-             <button onClick={scrollToVisualizer} className="bg-calm-primary text-white hover:bg-indigo-400 px-8 py-3 rounded-xl font-medium transition-all shadow-md hover:-translate-y-0.5">
+             <button onClick={scrollToVisualizer} className="bg-calm-primary text-white hover:bg-blue-800 px-8 py-3 rounded-xl font-medium transition-all shadow-md hover:-translate-y-0.5">
                Start Visualizing
              </button>
-             <a href="#theory" className="bg-calm-card hover:bg-gray-800 border border-calm-border px-8 py-3 rounded-xl font-medium transition-all text-calm-text hover:-translate-y-0.5 shadow-sm">
+             <a href="#theory" className="bg-calm-card hover:bg-slate-50 border border-calm-border px-8 py-3 rounded-xl font-medium transition-all text-calm-text hover:-translate-y-0.5 shadow-sm">
                Read Theory
              </a>
           </div>

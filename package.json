@@ -1,14 +1,16 @@
-{
+{"homepage": "https://sharvilpatil30-alt.github.io/DAA-/",
   "name": "new",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
-  },
+  "dev": "vite",
+  "build": "vite build",
+  "lint": "eslint .",
+  "preview": "vite preview",
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d dist"
+},
   "dependencies": {
     "framer-motion": "^12.38.0",
     "lucide-react": "^1.7.0",

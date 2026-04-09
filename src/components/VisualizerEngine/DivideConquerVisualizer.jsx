@@ -19,7 +19,7 @@ const TreeNode = ({ node, nodeStates }) => {
         animate={{ opacity: 1, scale: 1, y: isActive ? -2 : 0 }}
         transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1.0] }}
         className={`px-4 py-2.5 z-10 rounded-xl border font-mono text-center shadow-sm
-          ${isActive ? 'border-calm-primary bg-calm-primary/10 text-white shadow-[0_4px_15px_rgba(99,102,241,0.15)]' : 
+          ${isActive ? 'border-calm-primary bg-calm-primary/10 text-calm-primary shadow-[0_4px_15px_rgba(99,102,241,0.15)]' : 
             isMerged ? 'border-calm-secondary/50 bg-calm-card text-calm-text' : 'border-calm-border bg-calm-bg text-calm-text'}
         `}
       >
@@ -121,14 +121,14 @@ const DivideConquerVisualizer = ({ array }) => {
       </div>
 
       <div className="flex justify-center gap-5">
-          <button onClick={reset} className="p-3.5 bg-calm-border hover:bg-gray-700 rounded-full text-calm-text transition-all hover:-translate-y-[1px] shadow-sm">
+          <button onClick={reset} className="p-3.5 bg-calm-border hover:bg-slate-300 rounded-full text-calm-text transition-all hover:-translate-y-[1px] shadow-sm">
               <RotateCcw size={20} />
           </button>
-          <button onClick={togglePlay} className="px-8 py-3.5 bg-calm-secondary hover:bg-calm-secondary/80 rounded-full text-calm-bg font-medium flex items-center gap-3 shadow-md hover:-translate-y-[1px] transition-all w-36 justify-center">
+          <button onClick={togglePlay} className="px-8 py-3.5 bg-calm-secondary hover:bg-calm-secondary/80 rounded-full text-white font-medium flex items-center gap-3 shadow-md hover:-translate-y-[1px] transition-all w-36 justify-center">
               {isPlaying ? <Pause size={20} /> : <Play size={20} />}
               {isPlaying ? "Pause" : "Play"}
           </button>
-          <button onClick={stepForward} disabled={currentStep >= steps.length - 1} className="p-3.5 bg-calm-border hover:bg-gray-700 disabled:opacity-50 disabled:hover:bg-calm-border disabled:hover:translate-y-0 rounded-full text-calm-text transition-all hover:-translate-y-[1px] shadow-sm">
+          <button onClick={stepForward} disabled={currentStep >= steps.length - 1} className="p-3.5 bg-calm-border hover:bg-slate-300 disabled:opacity-50 disabled:hover:bg-calm-border disabled:hover:translate-y-0 rounded-full text-calm-text transition-all hover:-translate-y-[1px] shadow-sm">
               <SkipForward size={20} />
           </button>
       </div>

@@ -28,7 +28,15 @@ export const useDivideConquerAlgorithm = (array) => {
         node.left = buildTree(arr, start, start, level + 1);
         node.right = buildTree(arr, end, end, level + 1);
       } else {
-        const mid = Math.floor((start + end) / 2);
+        const size = end - start + 1;
+        let mid;
+        if (size % 2 === 0) {
+            let p = 2;
+            while (p * 2 < size) p *= 2;
+            mid = start + p - 1;
+        } else {
+            mid = Math.floor((start + end) / 2);
+        }
         node.left = buildTree(arr, start, mid, level + 1);
         node.right = buildTree(arr, mid + 1, end, level + 1);
       }

@@ -62,8 +62,8 @@ const BruteForceVisualizer = ({ array }) => {
                 animate={{
                     scale: isActive ? 1.05 : 1,
                     y: isActive ? -4 : 0,
-                    borderColor: isActive ? '#6366f1' : '#1f2937',
-                    backgroundColor: isActive ? 'rgba(99, 102, 241, 0.1)' : '#0b1220'
+                    borderColor: isActive ? 'var(--color-calm-primary)' : 'var(--color-calm-border)',
+                    backgroundColor: isActive ? 'color-mix(in srgb, var(--color-calm-primary) 10%, transparent)' : 'var(--color-calm-card)'
                 }}
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
                 className={`w-14 h-14 flex items-center justify-center rounded-xl border font-mono text-xl text-calm-text shadow-sm`}
@@ -102,14 +102,14 @@ const BruteForceVisualizer = ({ array }) => {
       </div>
 
       <div className="flex justify-center gap-5">
-          <button onClick={reset} className="p-3.5 bg-calm-border hover:bg-gray-700 rounded-full text-calm-text transition-all hover:-translate-y-[1px] shadow-sm" title="Reset">
+          <button onClick={reset} className="p-3.5 bg-calm-border hover:bg-slate-200 rounded-full text-calm-text transition-all hover:-translate-y-[1px] shadow-sm" title="Reset">
               <RotateCcw size={20} />
           </button>
-          <button onClick={togglePlay} className="px-8 py-3.5 bg-calm-primary hover:bg-indigo-400 rounded-full text-white font-medium flex items-center gap-3 shadow-md hover:-translate-y-[1px] transition-all w-36 justify-center">
+          <button onClick={togglePlay} className="px-8 py-3.5 bg-calm-primary hover:bg-blue-800 rounded-full text-white font-medium flex items-center gap-3 shadow-md hover:-translate-y-[1px] transition-all w-36 justify-center">
               {isPlaying ? <Pause size={20} /> : <Play size={20} />}
               {isPlaying ? "Pause" : "Play"}
           </button>
-          <button onClick={stepForward} disabled={currentStep >= steps.length - 1} className="p-3.5 bg-calm-border hover:bg-gray-700 disabled:opacity-50 disabled:hover:bg-calm-border disabled:hover:translate-y-0 rounded-full text-calm-text transition-all hover:-translate-y-[1px] shadow-sm" title="Step Forward">
+          <button onClick={stepForward} disabled={currentStep >= steps.length - 1} className="p-3.5 bg-calm-border hover:bg-slate-200 disabled:opacity-50 disabled:hover:bg-calm-border disabled:hover:translate-y-0 rounded-full text-calm-text transition-all hover:-translate-y-[1px] shadow-sm" title="Step Forward">
               <SkipForward size={20} />
           </button>
       </div>
