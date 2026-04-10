@@ -33,8 +33,8 @@ const TreeNode = ({ node, nodeStates }) => {
       
       {(node.left || node.right) && (
         <div className="flex gap-6 mt-6 relative w-full justify-center">
-            {/* Soft border connector */}
-            <div className="absolute top-[-24px] w-[50%] h-[24px] border-t border-calm-border border-l border-r rounded-t-md opacity-40" style={{ left: '25%' }}></div>
+            {/* Solid border connector */}
+            <div className="absolute top-[-24px] w-[50%] h-[24px] border-t-[3px] border-l-[3px] border-r-[3px] border-calm-muted rounded-t-lg" style={{ left: '25%' }}></div>
           {node.left && <TreeNode node={node.left} nodeStates={nodeStates} />}
           {node.right && <TreeNode node={node.right} nodeStates={nodeStates} />}
         </div>
@@ -83,12 +83,12 @@ const DivideConquerVisualizer = ({ array }) => {
 
   return (
     <div className="bg-calm-card p-8 rounded-2xl border border-calm-border shadow-drop-card flex flex-col">
-      <div className="flex justify-between items-center mb-8">
-        <h2 className="text-2xl font-medium text-calm-text tracking-wide">Recursive Method</h2>
-        <div className="flex bg-calm-bg rounded-lg overflow-hidden border border-calm-border shadow-inner">
-            <button onClick={() => setSpeed(1400)} className={`px-4 py-1.5 text-sm transition-colors ${speed === 1400 ? 'bg-calm-secondary/10 text-calm-secondary font-medium' : 'text-calm-muted hover:text-calm-text'}`}>Slow</button>
-            <button onClick={() => setSpeed(1000)} className={`px-4 py-1.5 text-sm border-l border-r border-calm-border transition-colors ${speed === 1000 ? 'bg-calm-secondary/10 text-calm-secondary font-medium' : 'text-calm-muted hover:text-calm-text'}`}>Smooth</button>
-            <button onClick={() => setSpeed(500)} className={`px-4 py-1.5 text-sm transition-colors ${speed === 500 ? 'bg-calm-secondary/10 text-calm-secondary font-medium' : 'text-calm-muted hover:text-calm-text'}`}>Fast</button>
+      <div className="flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0 mb-8">
+        <h2 className="text-2xl font-medium text-calm-text tracking-wide text-center sm:text-left">Recursive Method</h2>
+        <div className="flex bg-calm-bg rounded-lg overflow-hidden border border-calm-border shadow-inner w-full sm:w-auto justify-center">
+            <button onClick={() => setSpeed(1400)} className={`flex-1 sm:flex-none px-4 py-2 sm:py-1.5 text-sm transition-colors ${speed === 1400 ? 'bg-calm-secondary/10 text-calm-secondary font-medium' : 'text-calm-muted hover:text-calm-text'}`}>Slow</button>
+            <button onClick={() => setSpeed(1000)} className={`flex-1 sm:flex-none px-4 py-2 sm:py-1.5 text-sm border-l border-r border-calm-border transition-colors ${speed === 1000 ? 'bg-calm-secondary/10 text-calm-secondary font-medium' : 'text-calm-muted hover:text-calm-text'}`}>Smooth</button>
+            <button onClick={() => setSpeed(500)} className={`flex-1 sm:flex-none px-4 py-2 sm:py-1.5 text-sm transition-colors ${speed === 500 ? 'bg-calm-secondary/10 text-calm-secondary font-medium' : 'text-calm-muted hover:text-calm-text'}`}>Fast</button>
         </div>
       </div>
 
@@ -98,14 +98,22 @@ const DivideConquerVisualizer = ({ array }) => {
         )}
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 mt-auto">
-          <div className="bg-calm-bg p-5 rounded-xl border border-calm-secondary/30 text-center shadow-sm">
-              <p className="text-calm-secondary text-xs uppercase tracking-wider mb-2">Total Comparisons</p>
-              <p className="text-3xl font-mono font-medium text-calm-text">{currentData.comparisons}</p>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-8 mt-auto">
+          <div className="bg-calm-bg p-4 sm:p-5 rounded-xl border border-calm-border/50 text-center shadow-sm flex flex-col justify-center">
+              <p className="text-calm-muted text-[10px] sm:text-xs uppercase tracking-wider mb-2">Final Min</p>
+              <p className="text-2xl sm:text-3xl font-mono font-medium text-calm-min">{currentData?.nodeStates?.[initialTree?.id]?.min ?? '-'}</p>
           </div>
-          <div className="bg-calm-bg p-5 rounded-xl border border-calm-border/50 text-center flex flex-col justify-center shadow-sm">
-              <p className="text-calm-muted text-xs uppercase tracking-wider mb-2">Time Complexity</p>
-              <p className="text-xl font-mono font-medium text-calm-muted">O(n)</p>
+          <div className="bg-calm-bg p-4 sm:p-5 rounded-xl border border-calm-border/50 text-center shadow-sm flex flex-col justify-center">
+              <p className="text-calm-muted text-[10px] sm:text-xs uppercase tracking-wider mb-2">Final Max</p>
+              <p className="text-2xl sm:text-3xl font-mono font-medium text-calm-max">{currentData?.nodeStates?.[initialTree?.id]?.max ?? '-'}</p>
+          </div>
+          <div className="bg-calm-bg p-4 sm:p-5 rounded-xl border border-calm-secondary/30 text-center shadow-sm flex flex-col justify-center">
+              <p className="text-calm-secondary text-[10px] sm:text-xs uppercase tracking-wider mb-2">Comparisons</p>
+              <p className="text-2xl sm:text-3xl font-mono font-medium text-calm-text">{currentData.comparisons}</p>
+          </div>
+          <div className="bg-calm-bg p-4 sm:p-5 rounded-xl border border-calm-border/50 text-center flex flex-col justify-center shadow-sm">
+              <p className="text-calm-muted text-[10px] sm:text-xs uppercase tracking-wider mb-2">Time Complexity</p>
+              <p className="text-lg sm:text-xl font-mono font-medium text-calm-muted">O(n)</p>
           </div>
       </div>
 
@@ -120,11 +128,11 @@ const DivideConquerVisualizer = ({ array }) => {
           </motion.span>
       </div>
 
-      <div className="flex justify-center gap-5">
+      <div className="flex flex-wrap justify-center gap-3 sm:gap-5">
           <button onClick={reset} className="p-3.5 bg-calm-border hover:bg-slate-300 rounded-full text-calm-text transition-all hover:-translate-y-[1px] shadow-sm">
               <RotateCcw size={20} />
           </button>
-          <button onClick={togglePlay} className="px-8 py-3.5 bg-calm-secondary hover:bg-calm-secondary/80 rounded-full text-white font-medium flex items-center gap-3 shadow-md hover:-translate-y-[1px] transition-all w-36 justify-center">
+          <button onClick={togglePlay} className="px-6 sm:px-8 py-3.5 bg-calm-secondary hover:bg-calm-secondary/80 rounded-full text-white font-medium flex items-center gap-2 sm:gap-3 shadow-md hover:-translate-y-[1px] transition-all w-32 sm:w-36 justify-center">
               {isPlaying ? <Pause size={20} /> : <Play size={20} />}
               {isPlaying ? "Pause" : "Play"}
           </button>

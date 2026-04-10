@@ -32,7 +32,7 @@ const InputPanel = ({ array, setArray }) => {
         />
         <button 
           onClick={handleApply}
-          className="bg-calm-border hover:bg-gray-700 text-calm-text px-6 py-3 rounded-xl transition-all flex items-center justify-center gap-2 font-medium hover:-translate-y-[1px] shadow-sm"
+          className="bg-calm-border hover:bg-slate-300 text-calm-text px-6 py-3 rounded-xl transition-all flex items-center justify-center gap-2 font-medium hover:-translate-y-[1px] shadow-sm"
         >
           <Play size={18} /> Apply Custom
         </button>

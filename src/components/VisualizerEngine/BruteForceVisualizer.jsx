@@ -43,12 +43,12 @@ const BruteForceVisualizer = ({ array }) => {
 
   return (
     <div className="bg-calm-card p-8 rounded-2xl border border-calm-border shadow-drop-card">
-      <div className="flex justify-between items-center mb-8">
-        <h2 className="text-2xl font-medium text-calm-text tracking-wide">Iterative Method</h2>
-        <div className="flex bg-calm-bg rounded-lg overflow-hidden border border-calm-border shadow-inner">
-            <button onClick={() => setSpeed(1200)} className={`px-4 py-1.5 text-sm transition-colors ${speed === 1200 ? 'bg-calm-primary/20 text-calm-primary font-medium' : 'text-calm-muted hover:text-calm-text'}`}>Slow</button>
-            <button onClick={() => setSpeed(800)} className={`px-4 py-1.5 text-sm border-l border-r border-calm-border transition-colors ${speed === 800 ? 'bg-calm-primary/20 text-calm-primary font-medium' : 'text-calm-muted hover:text-calm-text'}`}>Smooth</button>
-            <button onClick={() => setSpeed(300)} className={`px-4 py-1.5 text-sm transition-colors ${speed === 300 ? 'bg-calm-primary/20 text-calm-primary font-medium' : 'text-calm-muted hover:text-calm-text'}`}>Fast</button>
+      <div className="flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0 mb-8">
+        <h2 className="text-2xl font-medium text-calm-text tracking-wide text-center sm:text-left">Iterative Method</h2>
+        <div className="flex bg-calm-bg rounded-lg overflow-hidden border border-calm-border shadow-inner w-full sm:w-auto justify-center">
+            <button onClick={() => setSpeed(1200)} className={`flex-1 sm:flex-none px-4 py-2 sm:py-1.5 text-sm transition-colors ${speed === 1200 ? 'bg-calm-primary/20 text-calm-primary font-medium' : 'text-calm-muted hover:text-calm-text'}`}>Slow</button>
+            <button onClick={() => setSpeed(800)} className={`flex-1 sm:flex-none px-4 py-2 sm:py-1.5 text-sm border-l border-r border-calm-border transition-colors ${speed === 800 ? 'bg-calm-primary/20 text-calm-primary font-medium' : 'text-calm-muted hover:text-calm-text'}`}>Smooth</button>
+            <button onClick={() => setSpeed(300)} className={`flex-1 sm:flex-none px-4 py-2 sm:py-1.5 text-sm transition-colors ${speed === 300 ? 'bg-calm-primary/20 text-calm-primary font-medium' : 'text-calm-muted hover:text-calm-text'}`}>Fast</button>
         </div>
       </div>
 
@@ -75,7 +75,7 @@ const BruteForceVisualizer = ({ array }) => {
         </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-6 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
           <div className="bg-calm-bg p-5 rounded-xl border border-calm-border/50 text-center shadow-sm">
               <p className="text-calm-muted text-xs uppercase tracking-wider mb-2">Current Min</p>
               <p className="text-3xl font-mono font-medium text-calm-min">{currentData.min ?? '-'}</p>
@@ -101,11 +101,11 @@ const BruteForceVisualizer = ({ array }) => {
           </motion.span>
       </div>
 
-      <div className="flex justify-center gap-5">
+      <div className="flex flex-wrap justify-center gap-3 sm:gap-5">
           <button onClick={reset} className="p-3.5 bg-calm-border hover:bg-slate-200 rounded-full text-calm-text transition-all hover:-translate-y-[1px] shadow-sm" title="Reset">
               <RotateCcw size={20} />
           </button>
-          <button onClick={togglePlay} className="px-8 py-3.5 bg-calm-primary hover:bg-blue-800 rounded-full text-white font-medium flex items-center gap-3 shadow-md hover:-translate-y-[1px] transition-all w-36 justify-center">
+          <button onClick={togglePlay} className="px-6 sm:px-8 py-3.5 bg-calm-primary hover:bg-blue-800 rounded-full text-white font-medium flex items-center gap-2 sm:gap-3 shadow-md hover:-translate-y-[1px] transition-all w-32 sm:w-36 justify-center">
               {isPlaying ? <Pause size={20} /> : <Play size={20} />}
               {isPlaying ? "Pause" : "Play"}
           </button>

@@ -62,7 +62,7 @@ function App() {
             <InputPanel array={array} setArray={setArray} />
         </div>
 
-        <div id="visualizers" className="grid grid-cols-1 xl:grid-cols-2 gap-8 mb-16 scroll-mt-32">
+        <div id="visualizers" className="flex flex-col gap-10 mb-16 scroll-mt-32">
             <BruteForceVisualizer array={array} />
             <DivideConquerVisualizer array={array} />
         </div>
@@ -90,8 +90,9 @@ function App() {
         </div>
       </main>
 
-      <footer className="mt-32 border-t border-calm-border py-12 text-center text-calm-muted/70">
+      <footer className="mt-32 border-t border-calm-border py-12 text-center text-calm-muted/70 flex flex-col gap-1">
         <p className="font-medium">Designed by Harshawardhan Patil, Ruturaj Lokhande, Sharvil Patil, Aditya Shiba.</p>
+        <p className="text-sm font-medium">RAJARAMBAPU INSTITUTE OF TECHNOLOGY</p>
       </footer>
     </div>
   );
